@@ -1,6 +1,6 @@
 const { z } = require("zod");
 
-exports.hostSchema = z.object({
+const baseSchema = z.object({
   name: z.string().max(100),
   description: z.string().optional(),
   ip_address: z.string().max(45),
@@ -9,3 +9,6 @@ exports.hostSchema = z.object({
   three_object_id: z.number().int().optional(),
   device_type_id: z.number().int(),
 });
+
+exports.createHostSchema = baseSchema;
+exports.updateHostSchema = baseSchema.partial;

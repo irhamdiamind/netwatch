@@ -1,5 +1,8 @@
 const hostService = require("../services/host.service");
-const { hostSchema } = require("../validations/host.validation");
+const {
+  createHostSchema,
+  updateHostSchema,
+} = require("../validations/host.validation");
 
 exports.getAll = async (req, res) => {
   try {
@@ -66,7 +69,7 @@ exports.getById = async (req, res) => {
 };
 
 exports.create = async (req, res) => {
-  const parsed = hostSchema.safeParse(req.body);
+  const parsed = createHostSchema.safeParse(req.body);
   if (!parsed.success) {
     return res.status(400).json({
       status: "fail",
@@ -100,7 +103,7 @@ exports.create = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-  const parsed = hostSchema.safeParse(req.body);
+  const parsed = updateHostSchema.safeParse(req.body);
   if (!parsed.success) {
     return res.status(400).json({
       status: "fail",
