@@ -2,26 +2,26 @@
 const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class DeviceType extends Model {
+  class DeviceCategory extends Model {
     static associate(models) {
       // define association here if needed
     }
   }
 
-  DeviceType.init(
+  DeviceCategory.init(
     {
-      type: DataTypes.STRING(50),
+      name: DataTypes.STRING(50),
       description: DataTypes.TEXT,
     },
     {
       sequelize,
-      modelName: "DeviceType",
-      tableName: "device_types",
+      modelName: "DeviceCategory",
+      tableName: "device_categories",
       underscored: true,
       paranoid: true,
       timestamps: true,
     }
   );
 
-  return DeviceType;
+  return DeviceCategory;
 };

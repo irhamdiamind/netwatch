@@ -9,7 +9,7 @@ exports.getAll = async (req, res) => {
     const {
       search = "",
       status = "",
-      deviceTypeId = "",
+      deviceId = "",
       page = 1,
       limit = 10,
     } = req.query;
@@ -17,7 +17,7 @@ exports.getAll = async (req, res) => {
     const { hosts, pagination } = await hostService.getAll(
       search.trim() || null,
       status.trim() || null,
-      deviceTypeId.trim() || null,
+      deviceId.trim() || null,
       parseInt(page),
       parseInt(limit)
     );

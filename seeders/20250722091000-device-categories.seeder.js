@@ -2,34 +2,34 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert("device_types", [
+    await queryInterface.bulkInsert("device_categories", [
       {
-        type: "Server",
+        name: "Server",
         description:
           "Physical or virtual machine used to host services or applications",
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
-        type: "Router",
+        name: "Router",
         description: "Network device that routes traffic between networks",
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
-        type: "Switch",
+        name: "Switch",
         description: "Device for managing data flow within a local network",
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
-        type: "Firewall",
+        name: "Firewall",
         description: "Security appliance that filters network traffic",
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
-        type: "Access Point",
+        name: "Access Point",
         description:
           "Wireless device that allows connections to a wired network",
         created_at: new Date(),
@@ -39,6 +39,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete("device_types", null, {});
+    await queryInterface.bulkDelete("device_categories", null, {});
   },
 };

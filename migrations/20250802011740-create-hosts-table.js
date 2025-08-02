@@ -28,8 +28,15 @@ module.exports = {
       three_object_id: {
         type: Sequelize.INTEGER,
       },
-      device_type_id: {
+      device_id: {
         type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: "devices",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "RESTRICT",
       },
       created_at: {
         allowNull: true,

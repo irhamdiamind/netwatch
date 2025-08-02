@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       location: DataTypes.STRING,
       status: DataTypes.ENUM("active", "inactive", "maintenance", "retired"),
       three_object_id: DataTypes.INTEGER,
-      device_type_id: DataTypes.INTEGER,
+      device_id: DataTypes.INTEGER,
     },
     {
       sequelize,

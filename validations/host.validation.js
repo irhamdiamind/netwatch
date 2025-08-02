@@ -7,7 +7,7 @@ const baseSchema = z.object({
   location: z.string().max(100).optional(),
   status: z.enum(["active", "inactive", "maintenance", "retired"]),
   three_object_id: z.number().int().optional(),
-  device_type_id: z.number().int(),
+  device_id: z.number().int(),
 });
 
 exports.createHostSchema = baseSchema;

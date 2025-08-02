@@ -1,29 +1,29 @@
 "use strict";
 
-const { DeviceType } = require("../models"); // Make sure models are accessible
+const { Device } = require("../models"); // Make sure models are accessible
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     // Fetch all device types
-    const deviceTypes = await DeviceType.findAll();
-    const getRandomDeviceType = () =>
-      deviceTypes[Math.floor(Math.random() * deviceTypes.length)];
+    const devices = await Device.findAll();
+    const getRandomDevice = () =>
+      devices[Math.floor(Math.random() * devices.length)];
 
     const hosts = [];
 
     for (let i = 1; i <= 30; i++) {
-      const deviceType = getRandomDeviceType();
-      const baseName = deviceType.type.toLowerCase().replace(/\s+/g, "-");
+      const device = getRandomDevice();
+      const baseName = device.name.toLowerCase().replace(/\s+/g, "-");
 
       hosts.push({
         name: `${baseName}-${String(i).padStart(2, "0")}`,
-        description: `${deviceType.type} device number ${i}`,
+        description: `${device.name} device number ${i}`,
         ip_address: `192.168.1.${100 + i}`,
         location: `Zone-${(i % 5) + 1}`,
         status: ["active", "inactive", "maintenance"][
           Math.floor(Math.random() * 3)
         ],
-        device_type_id: deviceType.id,
+        device_id: device.id,
         three_object_id: i,
         created_at: new Date(),
         updated_at: new Date(),
