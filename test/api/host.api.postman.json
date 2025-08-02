@@ -1,0 +1,88 @@
+{
+  "info": {
+    "_postman_id": "d4b56791-cfae-4cf2-b7a6-999999999999",
+    "name": "Host",
+    "description": "CRUD API for managing hosts",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Hosts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/hosts",
+          "host": ["{{base_url}}"],
+          "path": ["hosts"]
+        }
+      }
+    },
+    {
+      "name": "Get Host by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/hosts/1",
+          "host": ["{{base_url}}"],
+          "path": ["hosts", "1"]
+        }
+      }
+    },
+    {
+      "name": "Create Host",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Example Host\",\n  \"description\": \"Sample host description\",\n  \"ip_address\": \"192.168.1.123\",\n  \"location\": \"R1-F1\",\n  \"status\": \"active\",\n  \"three_object_id\": 1,\n  \"device_id\": 1\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/hosts",
+          "host": ["{{base_url}}"],
+          "path": ["hosts"]
+        }
+      }
+    },
+    {
+      "name": "Update Host",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Updated Host\",\n  \"description\": \"Updated description\",\n  \"ip_address\": \"192.168.1.124\",\n  \"location\": \"R1-F2\",\n  \"status\": \"maintenance\",\n  \"three_object_id\": 1,\n  \"device_id\": 2\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/hosts/1",
+          "host": ["{{base_url}}"],
+          "path": ["hosts", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Host",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/hosts/1",
+          "host": ["{{base_url}}"],
+          "path": ["hosts", "1"]
+        }
+      }
+    }
+  ]
+}

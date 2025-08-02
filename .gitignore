@@ -1,0 +1,27 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Sequelize config if needed
+config/config.json
+
+# Database files (for SQLite)
+*.sqlite
+
+# Compiled output
+dist/
+build/
+
+# IDE files
+.vscode/
+.idea/
